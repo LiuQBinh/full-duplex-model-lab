@@ -50,4 +50,10 @@ Terminal client (no echo cancellation):
 python scripts/run_moshi_mac.py --cli
 ```
 
+Ask from a wav instead of the microphone. The server above must already be running. The file is resampled to 24 kHz, then a few seconds of silence are appended so Moshi can answer.
+
+```bash
+python scripts/ask_from_wav.py question.wav --reply reply.wav
+```
+
 On a machine that is not Apple Silicon the script prints this setup and exits with code 2. It does not download the checkpoint.
