@@ -67,6 +67,7 @@ async def ask(url: str, pcm: np.ndarray, reply_path: str, timeout_s: float) -> s
                 print("question sent", flush=True)
 
             async def receive() -> None:
+                nonlocal audio_frames
                 async for msg in ws:
                     if msg.type != aiohttp.WSMsgType.BINARY or not msg.data:
                         if msg.type in (aiohttp.WSMsgType.CLOSE, aiohttp.WSMsgType.CLOSED, aiohttp.WSMsgType.ERROR):
